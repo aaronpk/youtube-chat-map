@@ -1,0 +1,12 @@
+{
+    "require": {
+        "phpunit/phpunit": "^7.5",
+        "p3k/http": "^0.1.11",
+        "vlucas/phpdotenv": "^4.1"
+    },
+	"autoload": {
+		"files": [
+		  "lib.php"
+		]
+	}
+}
