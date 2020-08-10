@@ -25,6 +25,8 @@ composer install
 
 Copy `.env.example` to `.env` and fill out the details. You'll need to get an API key for YouTube and Google Maps. Enter your channel name and that will also be removed from the messages people send to help get better quality locations from the chat.
 
+You'll need to register an OAuth app and an API key with Google and fill out the credentials in the config file.
+
 Run the app from the command line:
 
 ```
