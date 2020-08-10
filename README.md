@@ -11,11 +11,13 @@ This will strip out greeting words like "Hello from" and feed the remaining text
 
 ![Map](map.jpg)
 
+NOTE: This is not terribly easy to set up right now, because it requires getting API keys from Google and configuring a bunch of settings in the Google Developer Console. Help is welcome in documenting those steps since it is a bit overwhelming unless you're already familiar with Google Web Services.
+
 
 Setup
 -----
 
-Install dependencies using composer:
+Install dependencies using [Composer](https://getcomposer.org/download/):
 
 ```
 composer install
