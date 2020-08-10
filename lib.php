@@ -12,7 +12,9 @@ function extract_location_from_message($message) {
 	$message = trim($message);
 
 	// Remove my name 
-	$message = trim(str_replace('aaronparecki', '', $message));
+	$name = $_ENV['CHANNEL_NAME'];
+	$nameNoSpaces = str_replace(' ', '', $name);
+	$message = trim(str_replace([$name, $nameNoSpaces], '', $message));
 
 	// Strip leading greetings
 	$message = trim(preg_replace('/^(hi|hello|hey|greetings|morning|good morning|evening|good evening|afternoon|good afternoon),?/i', '', $message));

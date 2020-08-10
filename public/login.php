@@ -40,6 +40,7 @@ if(array_key_exists('check', $_GET)) {
   $token['issued_at'] = time();
   $token['expires_at'] = time() + $token['expires_in'];
   $_SESSION['token'] = $token;
+  unset($_SESSION['state']);
   
   header('Location: /');
   
@@ -59,7 +60,7 @@ if(array_key_exists('check', $_GET)) {
   } else {
     ?>
     <a href="<?= $authorize ?>">Connect Google</a>
-    <?
+    <?php
   }
 }
 

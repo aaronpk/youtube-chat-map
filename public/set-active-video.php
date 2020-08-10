@@ -5,9 +5,19 @@ session_start();
 
 header("Content-type: application/json");
 
-# https://www.youtube.com/watch?v=XXXXXXXXXX
-if(preg_match('/v=([a-zA-Z0-9_-]{11})/', $_POST['video'], $match)) {
+if(!isset($_SESSION['token'])) {
+	echo json_encode([
+		'result' => 'not-logged-in'
+	]);
+}
 
+# Accepts a video URL
+# https://www.youtube.com/watch?v=XXXXXXXXXX
+# or just the ID: XXXXXXXXXX
+if(
+	preg_match('/v=([a-zA-Z0-9_-]{11})/', $_POST['video'], $match) ||
+	preg_match('/^([a-zA-Z0-9_-]{11})$/', $_POST['video'], $match)
+) {
 	$videoID = $match[1];
 
 	$http = new p3k\HTTP();

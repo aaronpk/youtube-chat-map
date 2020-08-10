@@ -19,7 +19,6 @@ $url = YouTubeMap\youtube_api('liveChat/messages');
 $response = $http->get($url.'?'.http_build_query([
 	'liveChatId' => $_SESSION['liveChatID'],
 	'part' => 'snippet,authorDetails',
-	'playlistId' => $playlist_id,
 	'pageToken' => $_SESSION['nextPageToken'] ?? null,
 	'profileImageSize' => 120,
 ]), [
@@ -64,6 +63,7 @@ if(isset($data['items'])) {
 }
 
 echo json_encode([
+	# YouTube is supposed to prrovide an optimal polling interval but it seems too frequent and burns through API credits too quickly
 	#'interval' => $data['pollingIntervalMillis'],
 	'interval' => 5000,
 	'messages-debug' => $data,

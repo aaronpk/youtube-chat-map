@@ -198,7 +198,7 @@ function refreshChat() {
             findPlace(data.chat);
         }
 
-        setTimeout(refreshChat, 1000);
+        setTimeout(refreshChat, 2000);
     });
 }
 
@@ -217,10 +217,8 @@ function pollForNewMessages() {
 }
 
 function findPlace(chat) {
-  location = chat.location;
-
   var request = {
-    query: location,
+    query: chat.location,
     fields: ['name', 'geometry'],
   };
 
@@ -231,6 +229,9 @@ function findPlace(chat) {
         console.log(results[0]);
         new google.maps.Marker({position: results[0].geometry.location, map: map});
         showChatMessage(data.chat);
+    } else {
+        console.log(results);
+        return null;
     }
   });
 }
