@@ -228,7 +228,7 @@ function findPlace(chat) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         console.log(results[0]);
         new google.maps.Marker({position: results[0].geometry.location, map: map});
-        showChatMessage(data.chat);
+        showChatMessage(chat);
     } else {
         console.log(results);
         return null;
