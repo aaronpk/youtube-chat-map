@@ -17,7 +17,16 @@ NOTE: This is not terribly easy to set up right now, because it requires getting
 Setup
 -----
 
-Install dependencies using [Composer](https://getcomposer.org/download/):
+Install dependencies using [Composer](https://getcomposer.org/download/)
+
+The above resulting composer.phar file should be placed in an accesible location, i.e.:
+
+```
+sudo mv composer.phar /usr/local/bin/composer
+
+```
+
+Then, run composer install:
 
 ```
 composer install
