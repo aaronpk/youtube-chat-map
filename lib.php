@@ -17,8 +17,10 @@ function extract_location_from_message($message) {
 	$message = trim(str_replace([$name, $nameNoSpaces], '', $message));
 
 	// Strip leading greetings
-	$message = trim(preg_replace('/^(hi|hello|hey|greetings|morning|good morning|evening|good evening|afternoon|good afternoon),?/i', '', $message));
+	$message = trim(preg_replace(/^(aaron|yes|thanks|thank you|hi|hello|hey|hola|hallo|greetings|morning|good morning|evening|good evening|afternoon|good afternoon|goodnight|good night|congrats|congratulations|god kväll),?/i, '', $message));
 
+	$message = trim(preg_replace('/https?:\/\/[^\s]+/', '', $message));
+	
 	// Check for "from" followed by the end of the message or punctuation
 	if(preg_match('/from ([a-z, ]+)/i', $message, $match)) {
 		$message = trim($match[1]);
